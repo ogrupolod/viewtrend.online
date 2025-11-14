@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quiz – Truque da Ameixa para o Intestino</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f5f7;
+      color: #1f2933;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .page-wrapper {
+      width: 100%;
+      max-width: 980px;
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+      padding: 28px 20px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+      .page-wrapper {
+        padding: 32px 40px 28px;
+      }
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #f97316, #7c3aed);
+      position: relative;
+      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.16);
+    }
+
+    .brand-icon::before {
+      content: "";
+      position: absolute;
+      inset: 7px;
+      border-radius: 999px;
+      border: 2px solid rgba(255, 255, 255, 0.7);
+      border-top-color: transparent;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: #4c1d95;
+    }
+
+    .brand-subtitle {
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    .header-pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(124, 58, 237, 0.07);
+      font-size: 11px;
+      font-weight: 500;
+      color: #4c1d95;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .header-pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.16);
+    }
+
+    /* Hero */
+    .hero {
+      margin-bottom: 22px;
+    }
+
+    .hero-title {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 26px;
+      }
+    }
+
+    .hero-highlight {
+      background: linear-gradient(120deg, #7c3aed, #f97316);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: #4b5563;
+      max-width: 620px;
+      line-height: 1.5;
+    }
+
+    /* Progress bar */
+    .progress-wrapper {
+      margin: 22px 0 18px;
+    }
+
+    .progress-label-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 6px;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .progress-label-strong {
+      font-weight: 600;
+      color: #4c1d95;
+    }
+
+    .progress-bar-track {
+      width: 100%;
+      height: 8px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-bar-fill {
+      position: absolute;
+      inset: 0;
+      width: 10%;
+      border-radius: 999px;
+      background: #7c3aed;
+      transition: width 0.35s ease;
+    }
+
+    /* Layout columns on desktop */
+    .content-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 767px) {
+      .content-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* Left card – quiz */
+    .quiz-card {
+      border-radius: 16px;
+      border: 1px solid #e5e7eb;
+      padding: 18px 16px 16px;
+      background: #ffffff;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+    }
+
+    @media (min-width: 768px) {
+      .quiz-card {
+        padding: 20px 22px 18px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .quiz-card {
+        padding: 20px 22px 18px;
+      }
+    }
+
+    .quiz-tagline {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #7c3aed;
+      margin-bottom: 4px;
+    }
+
+    .quiz-intro {
+      font-size: 13px;
+      color: #4b5563;
+      margin-bottom: 14px;
+    }
+
+    .quiz-steps {
+      position: relative;
+    }
+
+    .quiz-step {
+      display: none;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(4px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      position: relative;
+    }
+
+    .quiz-step.active {
+      display: block;
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .quiz-question-number {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+
+    .quiz-question-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .quiz-question-helper {
+      font-size: 12px;
+      color: #6b7280;
+      margin-bottom: 12px;
+    }
+
+    .options-list {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .option-item {
+      position: relative;
+    }
+
+    .option-input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .option-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 10px;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      font-size: 13px;
+      color: #374151;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .option-badge {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #6b7280;
+      background: #f9fafb;
+    }
+
+    .option-label:hover {
+      border-color: #c4b5fd;
+      box-shadow: 0 4px 12px rgba(148, 163, 184, 0.25);
+      transform: translateY(-1px);
+    }
+
+    .option-input:checked + .option-label {
+      border-color: #7c3aed;
+      background: linear-gradient(90deg, rgba(124, 58, 237, 0.08), rgba(249, 115, 22, 0.04));
+      color: #111827;
+    }
+
+    .option-input:checked + .option-label .option-badge {
+      background: #7c3aed;
+      color: #f9fafb;
+      border-color: transparent;
+    }
+
+    .quiz-hint {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 2px;
+    }
+
+    .quiz-error {
+      display: none;
+      font-size: 11px;
+      color: #b91c1c;
+      margin-top: 6px;
+    }
+
+    .quiz-error.visible {
+      display: block;
+    }
+
+    /* Navigation buttons */
+    .quiz-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav-left,
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: none;
+      padding: 9px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .btn-secondary {
+      background: #f9fafb;
+      color: #4b5563;
+      border: 1px solid #e5e7eb;
+    }
+
+    .btn-secondary:hover {
+      background: #f3f4f6;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #7c3aed, #f97316);
+      color: #f9fafb;
+      box-shadow: 0 10px 20px rgba(124, 58, 237, 0.25);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 12px 24px rgba(124, 58, 237, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.6;
+      cursor: default;
+      box-shadow: none;
+      transform: none;
+    }
+
+    .nav-hint {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    /* Right panel – reassurance & bullets */
+    .side-card {
+      border-radius: 16px;
+      padding: 18px 16px 16px;
+      background: #f9fafb;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    @media (min-width: 768px) {
+      .side-card {
+        padding: 18px 20px;
+      }
+    }
+
+    
+      .side-card {
+        padding: 18px 20px;
+      }
+    }
+
+    .side-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #111827;
+    }
+
+    .side-subtitle {
+      font-size: 12px;
+      color: #4b5563;
+      margin-bottom: 8px;
+    }
+
+    .side-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .side-badge {
+      padding: 5px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      background: rgba(16, 185, 129, 0.08);
+      color: #047857;
+      border: 1px solid rgba(16, 185, 129, 0.18);
+    }
+
+    .side-badge-alt {
+      background: rgba(59, 130, 246, 0.08);
+      color: #1d4ed8;
+      border-color: rgba(59, 130, 246, 0.18);
+    }
+
+    .side-list {
+      list-style: none;
+      display: grid;
+      gap: 6px;
+      font-size: 12px;
+      color: #4b5563;
+    }
+
+    .side-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .side-bullet {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      margin-top: 5px;
+      background: linear-gradient(135deg, #7c3aed, #f97316);
+      flex-shrink: 0;
+    }
+
+    .side-footer {
+      margin-top: 6px;
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    .side-footer-strong {
+      font-weight: 600;
+      color: #4c1d95;
+    }
+
+    /* Result section */
+    .result-section {
+      display: none;
+      margin-top: 20px;
+      border-radius: 16px;
+      border: 1px solid #e5e7eb;
+      padding: 18px 16px 16px;
+      background: #f9fafb;
+    }
+
+    .result-section.visible {
+      display: block;
+    }
+
+    @media (min-width: 768px) {
+      .result-section {
+        padding: 20px 22px 18px;
+      }
+    }
+
+    
+      .result-section {
+        padding: 20px 22px 18px;
+      }
+    }
+
+    .result-pill {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #6b21a8;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .result-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 6px;
+    }
+
+    .result-subtitle {
+      font-size: 13px;
+      color: #4b5563;
+      margin-bottom: 12px;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 767px) {
+      .result-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .result-benefits {
+      font-size: 12px;
+      color: #374151;
+      display: grid;
+      gap: 6px;
+    }
+
+    .result-benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .result-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.08);
+      border: 1px solid rgba(34, 197, 94, 0.18);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #16a34a;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .capture-box {
+      border-radius: 16px;
+      border: 1px solid rgba(124, 58, 237, 0.25);
+      background: rgba(255, 255, 255, 0.9);
+      padding: 12px 12px 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .capture-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #4c1d95;
+    }
+
+    .capture-description {
+      font-size: 12px;
+      color: #4b5563;
+    }
+
+    .capture-fields {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr);
+      gap: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .capture-fields {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .input-field {
+      width: 100%;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      padding: 8px 12px;
+      font-size: 12px;
+      outline: none;
+      transition: all 0.16s ease;
+      background: #ffffff;
+    }
+
+    .input-field:focus {
+      border-color: #7c3aed;
+      box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.3);
+    }
+
+    .capture-cta {
+      margin-top: 2px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .btn-cta {
+      width: 100%;
+      border-radius: 999px;
+      border: none;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      background: linear-gradient(90deg, #7c3aed, #f97316);
+      color: #f9fafb;
+      box-shadow: 0 12px 25px rgba(124, 58, 237, 0.35);
+      transition: all 0.18s ease;
+    }
+
+    .btn-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(124, 58, 237, 0.45);
+    }
+
+    .capture-note {
+      font-size: 11px;
+      color: #9ca3af;
+      line-height: 1.4;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 22px;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer a {
+      color: #6b7280;
+      text-decoration: none;
+      transition: color 0.16s ease;
+    }
+
+    .footer a:hover {
+      color: #4c1d95;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand-mark">
+        <div class="brand-icon"></div>
+        <div class="brand-text">
+          <span class="brand-title">Truque da Ameixa</span>
+          <span class="brand-subtitle">Intestino leve, dia mais feliz</span>
+        </div>
+      </div>
+      <div class="header-pill">
+        <span class="header-pill-dot"></span>
+        <span>Quiz rápido · leva menos de 2 minutos</span>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <h1 class="hero-title">
+        Melhore seu <span class="hero-highlight">intestino em poucos dias</span> com o Truque da Ameixa
+      </h1>
+      <p class="hero-subtitle">
+        Responda este quiz de <strong>10 etapas</strong> e descubra qual é o nível de saúde do seu intestino hoje e como o
+        <strong>truque da ameixa</strong> pode ajudá-lo a destravar, desinchar e recuperar sua energia natural.
+      </p>
+    </section>
+
+    <!-- Progress -->
+    <section class="progress-wrapper">
+      <div class="progress-label-row">
+        <span class="progress-label-strong" id="progressLabel">Pergunta 1 de 10</span>
+        <span>Complete o quiz para ver o resultado personalizado.</span>
+      </div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progressBar"></div>
+      </div>
+    </section>
+
+    <!-- Content layout -->
+    <section class="content-layout">
+      <!-- Quiz card -->
+      <div class="quiz-card">
+        <div class="quiz-tagline">Avaliação rápida do intestino</div>
+        <p class="quiz-intro">
+          Suas respostas ajudam a entender se seu intestino está lento, sobrecarregado ou saudável – e qual versão do
+          <strong>truque da ameixa</strong> faz mais sentido para você.
+        </p>
+
+        <form id="quizForm">
+          <div class="quiz-steps">
+            <!-- Passo 1 -->
+            <div class="quiz-step active" data-step="1">
+              <div class="quiz-question-number">Etapa 1</div>
+              <h2 class="quiz-question-title">
+                Com que frequência seu intestino funciona (você consegue ir ao banheiro)?
+              </h2>
+              <p class="quiz-question-helper">Pense na média dos últimos dias.</p>
+
+              <div class="options-list">
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q1" id="q1a" value="1" />
+                  <label class="option-label" for="q1a">
+                    <span class="option-badge">A</span>
+                    Todos os dias, de forma tranquila
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q1" id="q1b" value="2" />
+                  <label class="option-label" for="q1b">
+                    <span class="option-badge">B</span>
+                    Um dia sim, outro não
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q1" id="q1c" value="3" />
+                  <label class="option-label" for="q1c">
+                    <span class="option-badge">C</span>
+                    De dois a três dias sem conseguir ir
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q1" id="q1d" value="4" />
+                  <label class="option-label" for="q1d">
+                    <span class="option-badge">D</span>
+                    Fico mais de três dias preso(a)
+                  </label>
+                </div>
+              </div>
+              <p class="quiz-hint">Quanto mais preso o intestino, mais seu corpo sofre com toxinas e inchaço.</p>
+              <p class="quiz-error" id="error1">Escolha uma opção para continuar.</p>
+            </div>
+
+            <!-- Passo 2 -->
+            <div class="quiz-step" data-step="2">
+              <div class="quiz-question-number">Etapa 2</div>
+              <h2 class="quiz-question-title">
+                Você costuma sentir inchaço na barriga ao longo do dia?
+              </h2>
+              <p class="quiz-question-helper">Considere principalmente após as refeições.</p>
+
+              <div class="options-list">
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q2" id="q2a" value="1" />
+                  <label class="option-label" for="q2a">
+                    <span class="option-badge">A</span>
+                    Quase nunca
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q2" id="q2b" value="2" />
+                  <label class="option-label" for="q2b">
+                    <span class="option-badge">B</span>
+                    Às vezes, em dias específicos
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q2" id="q2c" value="3" />
+                  <label class="option-label" for="q2c">
+                    <span class="option-badge">C</span>
+                    Quase todos os dias
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q2" id="q2d" value="4" />
+                  <label class="option-label" for="q2d">
+                    <span class="option-badge">D</span>
+                    Todos os dias, com muito desconforto
+                  </label>
+                </div>
+              </div>
+              <p class="quiz-hint">Inchaço constante é um sinal de intestino lento e fermentação excessiva.</p>
+              <p class="quiz-error" id="error2">Escolha uma opção para continuar.</p>
+            </div>
+
+            <!-- Passo 3 -->
+            <div class="quiz-step" data-step="3">
+              <div class="quiz-question-number">Etapa 3</div>
+              <h2 class="quiz-question-title">
+                Como você descreveria sua energia ao longo do dia?
+              </h2>
+              <p class="quiz-question-helper">Intestino travado impacta diretamente na disposição.</p>
+
+              <div class="options-list">
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q3" id="q3a" value="1" />
+                  <label class="option-label" for="q3a">
+                    <span class="option-badge">A</span>
+                    Disposição boa a maior parte do tempo
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q3" id="q3b" value="2" />
+                  <label class="option-label" for="q3b">
+                    <span class="option-badge">B</span>
+                    Tenho alguns momentos de cansaço
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q3" id="q3c" value="3" />
+                  <label class="option-label" for="q3c">
+                    <span class="option-badge">C</span>
+                    Vivo cansado(a), mesmo dormindo bem
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q3" id="q3d" value="4" />
+                  <label class="option-label" for="q3d">
+                    <span class="option-badge">D</span>
+                    Me sinto esgotado(a) quase o tempo todo
+                  </label>
+                </div>
+              </div>
+              <p class="quiz-hint">Quando o intestino trava, o corpo acumula toxinas e a energia despenca.</p>
+              <p class="quiz-error" id="error3">Escolha uma opção para continuar.</p>
+            </div>
+
+            <!-- Passo 4 -->
+            <div class="quiz-step" data-step="4">
+              <div class="quiz-question-number">Etapa 4</div>
+              <h2 class="quiz-question-title">
+                Você costuma usar laxantes, chás “fortes” ou remédios para ir ao banheiro?
+              </h2>
+              <p class="quiz-question-helper">Inclua uso esporádico ou frequente.</p>
+
+              <div class="options-list">
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q4" id="q4a" value="1" />
+                  <label class="option-label" for="q4a">
+                    <span class="option-badge">A</span>
+                    Não uso, quase nunca precisei
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q4" id="q4b" value="2" />
+                  <label class="option-label" for="q4b">
+                    <span class="option-badge">B</span>
+                    Só em situações extremas
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q4" id="q4c" value="3" />
+                  <label class="option-label" for="q4c">
+                    <span class="option-badge">C</span>
+                    Uso pelo menos 1x por semana
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q4" id="q4d" value="4" />
+                  <label class="option-label" for="q4d">
+                    <span class="option-badge">D</span>
+                    Dependo de laxantes para conseguir ir
+                  </label>
+                </div>
+              </div>
+              <p class="quiz-hint">O objetivo do truque da ameixa é libertar você dessa dependência.</p>
+              <p class="quiz-error" id="error4">Escolha uma opção para continuar.</p>
+            </div>
+
+            <!-- Passo 5 -->
+            <div class="quiz-step" data-step="5">
+              <div class="quiz-question-number">Etapa 5</div>
+              <h2 class="quiz-question-title">
+                Como está a aparência da sua barriga hoje?
+              </h2>
+              <p class="quiz-question-helper">Considere volume, retenção e sensação de “peso”.</p>
+
+              <div class="options-list">
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q5" id="q5a" value="1" />
+                  <label class="option-label" for="q5a">
+                    <span class="option-badge">A</span>
+                    Barriga relativamente reta, muda pouco
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q5" id="q5b" value="2" />
+                  <label class="option-label" for="q5b">
+                    <span class="option-badge">B</span>
+                    Incha em alguns momentos do dia
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q5" id="q5c" value="3" />
+                  <label class="option-label" for="q5c">
+                    <span class="option-badge">C</span>
+                    Vivo com sensação de barriga estufada
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q5" id="q5d" value="4" />
+                  <label class="option-label" for="q5d">
+                    <span class="option-badge">D</span>
+                    Inchaço intenso, roupas apertam facilmente
+                  </label>
+                </div>
+              </div>
+              <p class="quiz-hint">Muitas pessoas desincham visivelmente quando o intestino volta a funcionar.</p>
+              <p class="quiz-error" id="error5">Escolha uma opção para continuar.</p>
+            </div>
+
+            <!-- Passo 6 -->
+            <div class="quiz-step" data-step="6">
+              <div class="quiz-question-number">Etapa 6</div>
+              <h2 class="quiz-question-title">
+                Você sente que sua pele ou humor pioram quando o intestino está preso?
+              </h2>
+              <p class="quiz-question-helper">Intestino e bem-estar emocional andam juntos.</p>
+
+              <div class="options-list">
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q6" id="q6a" value="1" />
+                  <label class="option-label" for="q6a">
+                    <span class="option-badge">A</span>
+                    Não percebo diferença
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q6" id="q6b" value="2" />
+                  <label class="option-label" for="q6b">
+                    <span class="option-badge">B</span>
+                    Às vezes noto irritação ou pele mais apagada
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q6" id="q6c" value="3" />
+                  <label class="option-label" for="q6c">
+                    <span class="option-badge">C</span>
+                    Quase sempre fico mais irritado(a) e sem brilho
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q6" id="q6d" value="4" />
+                  <label class="option-label" for="q6d">
+                    <span class="option-badge">D</span>
+                    Sinto que tudo piora quando fico preso(a)
+                  </label>
+                </div>
+              </div>
+              <p class="quiz-hint">Um intestino equilibrado reflete em pele, energia e humor mais estáveis.</p>
+              <p class="quiz-error" id="error6">Escolha uma opção para continuar.</p>
+            </div>
+
+            <!-- Passo 7 -->
+            <div class="quiz-step" data-step="7">
+              <div class="quiz-question-number">Etapa 7</div>
+              <h2 class="quiz-question-title">
+                Quantos copos de água você costuma beber por dia?
+              </h2>
+              <p class="quiz-question-helper">A hidratação ajuda o truque da ameixa a funcionar melhor.</p>
+
+              <div class="options-list">
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q7" id="q7a" value="1" />
+                  <label class="option-label" for="q7a">
+                    <span class="option-badge">A</span>
+                    Menos de 3 copos
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q7" id="q7b" value="2" />
+                  <label class="option-label" for="q7b">
+                    <span class="option-badge">B</span>
+                    De 3 a 5 copos
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q7" id="q7c" value="3" />
+                  <label class="option-label" for="q7c">
+                    <span class="option-badge">C</span>
+                    De 6 a 8 copos
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q7" id="q7d" value="4" />
+                  <label class="option-label" for="q7d">
+                    <span class="option-badge">D</span>
+                    Mais de 8 copos por dia
+                  </label>
+                </div>
+              </div>
+              <p class="quiz-hint">Água + fibras da ameixa é a combinação perfeita para destravar o intestino.</p>
+              <p class="quiz-error" id="error7">Escolha uma opção para continuar.</p>
+            </div>
+
+            <!-- Passo 8 -->
+            <div class="quiz-step" data-step="8">
+              <div class="quiz-question-number">Etapa 8</div>
+              <h2 class="quiz-question-title">
+                Qual é o seu principal objetivo ao usar o truque da ameixa?
+              </h2>
+              <p class="quiz-question-helper">Isso ajuda a direcionar o melhor protocolo.</p>
+
+              <div class="options-list">
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q8" id="q8a" value="1" />
+                  <label class="option-label" for="q8a">
+                    <span class="option-badge">A</span>
+                    Destravar o intestino preso
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q8" id="q8b" value="2" />
+                  <label class="option-label" for="q8b">
+                    <span class="option-badge">B</span>
+                    Diminuir inchaço e gases
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q8" id="q8c" value="3" />
+                  <label class="option-label" for="q8c">
+                    <span class="option-badge">C</span>
+                    Melhorar energia e bem-estar geral
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q8" id="q8d" value="4" />
+                  <label class="option-label" for="q8d">
+                    <span class="option-badge">D</span>
+                    Barriga mais leve e aparência melhor
+                  </label>
+                </div>
+              </div>
+              <p class="quiz-hint">Cada objetivo pode ter um detalhe diferente no modo de usar o truque da ameixa.</p>
+              <p class="quiz-error" id="error8">Escolha uma opção para continuar.</p>
+            </div>
+
+            <!-- Passo 9 -->
+            <div class="quiz-step" data-step="9">
+              <div class="quiz-question-number">Etapa 9</div>
+              <h2 class="quiz-question-title">
+                Como você classificaria sua alimentação no dia a dia?
+              </h2>
+              <p class="quiz-question-helper">Seja sincero(a), isso é só para ajustar a recomendação.</p>
+
+              <div class="options-list">
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q9" id="q9a" value="1" />
+                  <label class="option-label" for="q9a">
+                    <span class="option-badge">A</span>
+                    Relativamente equilibrada, com frutas e legumes
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q9" id="q9b" value="2" />
+                  <label class="option-label" for="q9b">
+                    <span class="option-badge">B</span>
+                    Mistura de saudável com “besteiras”
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q9" id="q9c" value="3" />
+                  <label class="option-label" for="q9c">
+                    <span class="option-badge">C</span>
+                    Bastante industrializados e fast-food
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q9" id="q9d" value="4" />
+                  <label class="option-label" for="q9d">
+                    <span class="option-badge">D</span>
+                    Quase sempre alimentos rápidos e prontos
+                  </label>
+                </div>
+              </div>
+              <p class="quiz-hint">Mesmo com rotina corrida, o truque da ameixa pode ser o primeiro passo de mudança.</p>
+              <p class="quiz-error" id="error9">Escolha uma opção para continuar.</p>
+            </div>
+
+            <!-- Passo 10 -->
+            <div class="quiz-step" data-step="10">
+              <div class="quiz-question-number">Etapa 10</div>
+              <h2 class="quiz-question-title">
+                Em quanto tempo você gostaria de começar a sentir seu intestino mais leve?
+              </h2>
+              <p class="quiz-question-helper">Isso ajuda a ajustar a intensidade do protocolo.</p>
+
+              <div class="options-list">
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q10" id="q10a" value="1" />
+                  <label class="option-label" for="q10a">
+                    <span class="option-badge">A</span>
+                    Em poucos dias, de forma gradual
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q10" id="q10b" value="2" />
+                  <label class="option-label" for="q10b">
+                    <span class="option-badge">B</span>
+                    Em até uma semana, com resultado visível
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q10" id="q10c" value="3" />
+                  <label class="option-label" for="q10c">
+                    <span class="option-badge">C</span>
+                    O mais rápido possível, estou sofrendo bastante
+                  </label>
+                </div>
+                <div class="option-item">
+                  <input class="option-input" type="radio" name="q10" id="q10d" value="4" />
+                  <label class="option-label" for="q10d">
+                    <span class="option-badge">D</span>
+                    Quero uma rotina consistente para longo prazo
+                  </label>
+                </div>
+              </div>
+              <p class="quiz-hint">Agora vamos preparar um resumo do seu intestino + truque da ameixa ideal para você.</p>
+              <p class="quiz-error" id="error10">Escolha uma opção para ver o resultado.</p>
+            </div>
+          </div>
+
+          <!-- Navegação -->
+          <div class="quiz-nav">
+            <div class="nav-left">
+              <button type="button" class="btn btn-secondary" id="prevBtn">
+                ← Voltar
+              </button>
+              <span class="nav-hint" id="stepHint">Faltam 9 perguntas.</span>
+            </div>
+            <div class="nav-right">
+              <button type="button" class="btn btn-primary" id="nextBtn">
+                Próximo →
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Side card -->
+      <aside class="side-card">
+        <div>
+          <h3 class="side-title">Por que este quiz é importante?</h3>
+          <p class="side-subtitle">
+            Cada resposta aproxima você de um <strong>plano simples e prático</strong> para destravar o intestino usando o
+            truque da ameixa de forma segura.
+          </p>
+          <div class="side-badges">
+            <span class="side-badge">Sem exposição · 100% confidencial</span>
+            <span class="side-badge side-badge-alt">Sem compromisso de compra</span>
+          </div>
+          <ul class="side-list">
+            <li>
+              <span class="side-bullet"></span>
+              <span>Identifique se seu intestino está apenas lento ou pedindo ajuda há mais tempo.</span>
+            </li>
+            <li>
+              <span class="side-bullet"></span>
+              <span>Descubra hábitos que podem estar sabotando o efeito de qualquer fibra ou laxante.</span>
+            </li>
+            <li>
+              <span class="side-bullet"></span>
+              <span>Entenda como usar o truque da ameixa sem dor, sem cólicas e sem correria.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="side-footer">
+          <span class="side-footer-strong">Dica:</span> responda com sinceridade para receber uma recomendação alinhada com
+          sua rotina real.
+        </div>
+      </aside>
+    </section>
+
+    <!-- Resultado + captura -->
+    <section class="result-section" id="resultSection">
+      <div class="result-pill">Quase lá</div>
+      <h2 class="result-title">Veja o resultado do seu intestino + truque da ameixa recomendado</h2>
+      <p class="result-subtitle">
+        Com base nas suas respostas, vamos mostrar um resumo do nível de equilíbrio do seu intestino e o
+        <strong>melhor jeito de aplicar o truque da ameixa</strong> para o seu caso – passo a passo, sem achismo.
+      </p>
+
+      <div class="result-grid">
+        <div class="result-benefits">
+          <div class="result-benefit-item">
+            <span class="result-icon">✓</span>
+            <span>
+              Entenda se o seu intestino está <strong>apenas preguiçoso</strong> ou em um nível de alerta que exige mais
+              cuidado.
+            </span>
+          </div>
+          <div class="result-benefit-item">
+            <span class="result-icon">✓</span>
+            <span>
+              Descubra qual é o melhor horário, frequência e forma de preparo do
+              <strong>truque da ameixa</strong> para o seu perfil.
+            </span>
+          </div>
+          <div class="result-benefit-item">
+            <span class="result-icon">✓</span>
+            <span>
+              Receba orientações simples para <strong>desinchar, destravar e ganhar leveza</strong> sem depender de
+              laxantes agressivos.
+            </span>
+          </div>
+        </div>
+
+        <div class="capture-box">
+          <div>
+            <h3 class="capture-title">Onde te envio o seu resultado personalizado?</h3>
+            <p class="capture-description">
+              Preencha abaixo para receber o resultado do seu intestino + o protocolo do
+              <strong>truque da ameixa</strong> indicado para você.
+            </p>
+          </div>
+
+          <div class="capture-fields">
+            <input class="input-field" type="text" placeholder="Seu nome" id="leadName" />
+            <input class="input-field" type="email" placeholder="Seu melhor e-mail" id="leadEmail" />
+          </div>
+
+          <!-- Se quiser usar WhatsApp em vez de e-mail, troque o campo acima por telefone/WhatsApp -->
+          <div class="capture-cta">
+            <button class="btn-cta" type="button" id="ctaButton">
+              Ver o resultado do meu intestino + truque da ameixa recomendado
+            </button>
+            <p class="capture-note">
+              Ao continuar, você concorda em receber o conteúdo relacionado ao truque da ameixa e cuidados com o intestino.
+              Seus dados são protegidos e você pode sair quando quiser.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+      <span>© <span id="footerYear"></span> Truque da Ameixa · Todos os direitos reservados.</span>
+      <div class="footer-links">
+        <a href="#termos">Termos de Uso</a>
+        <a href="#privacidade">Política de Privacidade</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      const totalSteps = 10;
+      let currentStep = 1;
+
+      const quizForm = document.getElementById("quizForm");
+      const steps = quizForm.querySelectorAll(".quiz-step");
+      const progressBar = document.getElementById("progressBar");
+      const progressLabel = document.getElementById("progressLabel");
+      const stepHint = document.getElementById("stepHint");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const resultSection = document.getElementById("resultSection");
+      const footerYear = document.getElementById("footerYear");
+      const ctaButton = document.getElementById("ctaButton");
+
+      footerYear.textContent = new Date().getFullYear();
+
+      function updateProgress() {
+        const percentage = (currentStep / totalSteps) * 100;
+        progressBar.style.width = percentage + "%";
+        progressLabel.textContent = "Pergunta " + currentStep + " de " + totalSteps;
+
+        const remaining = totalSteps - currentStep;
+        if (remaining > 1) {
+          stepHint.textContent = "Faltam " + remaining + " perguntas.";
+        } else if (remaining === 1) {
+          stepHint.textContent = "Falta 1 pergunta.";
+        } else {
+          stepHint.textContent = "Último passo: veja seu resultado personalizado.";
+        }
+
+        if (currentStep === 1) {
+          prevBtn.disabled = true;
+          prevBtn.style.opacity = 0.6;
+        } else {
+          prevBtn.disabled = false;
+          prevBtn.style.opacity = 1;
+        }
+
+        if (currentStep === totalSteps) {
+          nextBtn.textContent = "Ver resultado →";
+        } else {
+          nextBtn.textContent = "Próximo →";
+        }
+      }
+
+      function showStep(step) {
+        steps.forEach(function (el) {
+          const s = Number(el.getAttribute("data-step"));
+          if (s === step) {
+            el.classList.add("active");
+          } else {
+            el.classList.remove("active");
+          }
+        });
+        updateProgress();
+      }
+
+      function validateStep(step) {
+        const stepEl = quizForm.querySelector('.quiz-step[data-step="' + step + '"]');
+        const name = "q" + step;
+        const selected = stepEl.querySelector('input[name="' + name + '"]:checked');
+        const error = document.getElementById("error" + step);
+
+        if (!selected) {
+          if (error) {
+            error.classList.add("visible");
+          }
+          return false;
+        } else {
+          if (error) {
+            error.classList.remove("visible");
+          }
+          return true;
+        }
+      }
+
+      prevBtn.addEventListener("click", function () {
+        if (currentStep > 1) {
+          currentStep--;
+          showStep(currentStep);
+          resultSection.classList.remove("visible");
+        }
+      });
+
+      nextBtn.addEventListener("click", function () {
+        const valid = validateStep(currentStep);
+        if (!valid) return;
+
+        if (currentStep < totalSteps) {
+          currentStep++;
+          showStep(currentStep);
+          resultSection.classList.remove("visible");
+        } else {
+          // Finaliza quiz e mostra resultado/captura
+          resultSection.classList.add("visible");
+          resultSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+
+      ctaButton.addEventListener("click", function () {
+        // PONTO DE INTEGRAÇÃO: aqui você pode conectar com Kiwify, pixel, etc.
+        // Exemplo simples de feedback visual:
+        ctaButton.textContent = "Processando seu resultado...";
+        ctaButton.disabled = true;
+        setTimeout(function () {
+          ctaButton.textContent = "Resultado enviado! Confira sua caixa de entrada.";
+        }, 1200);
+      });
+
+      // inicia
+      showStep(currentStep);
+    })();
+  </script>
+</body>
+</html>
