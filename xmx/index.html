@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página em Branco</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #e0e0e0;
+      min-height: 100vh;
+      font-family: 'Cabin', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+  </style>
+
+  <!-- VTurb performance & preloads -->
+  <script>
+    !function(i, n) {
+      i._plt = i._plt || (n && n.timeOrigin ? n.timeOrigin + n.now() : Date.now());
+    }(window, performance);
+  </script>
+  <link rel="preload" href="https://scripts.converteai.net/60b2de82-89bd-4e79-a03f-d206fb6f5a6b/players/6917691698db0a5ed75f2862/v4/player.js" as="script">
+  <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+  <link rel="preload" href="https://cdn.converteai.net/60b2de82-89bd-4e79-a03f-d206fb6f5a6b/690c16202464ff08d6f1d674/main.m3u8" as="fetch">
+  <link rel="dns-prefetch" href="https://cdn.converteai.net">
+  <link rel="dns-prefetch" href="https://scripts.converteai.net">
+  <link rel="dns-prefetch" href="https://images.converteai.net">
+  <link rel="dns-prefetch" href="https://api.vturb.com.br">
+
+  <!-- Componente web VTurb (garante que <vturb-smartplayer> seja reconhecido) -->
+  <script src="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" async></script>
+</head>
+<body>
+
+  <div id="cityBar" style="width:100%; background:#ffd60a; color:#000; padding:8px 0; text-align:center; font-size:14px; font-weight:650; letter-spacing:0.1px; box-shadow:0 1px 2px rgba(0,0,0,0.05); border-bottom:1px solid rgba(0,0,0,0.08);">
+    <span id="viewersNumber" style="color:#b30000; font-weight:700;">--</span>
+    <span>pessoas de</span>
+    <span id="viewerCity">sua região</span>
+    <span>estão assistindo agora.</span>
+  </div>
+
+  <div style="max-width:480px; margin:20px auto 0; padding:0 16px;">
+    <div style="display:flex; align-items:flex-start; gap:14px; margin-bottom:10px;">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABDgAAAQ4CAYAAADsEGyPAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAEuGlUWHRYTUw6Y29tLmFkb2JlAAAAAAAzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzP/2P/gABBKRklGAAEBAAAPAAIAAABsY3JvdAAAAAUAAAAsAAAAc2NwYgAAAAYAAABkAAAAeGVtcAAAABAAAAB8AAAAeG1sdAAAAAgAAAAoAAAAmnNvZGEAAAAoAAAAsAAAAGJsb2IAAAAAAAAAABoAAAA2AAAAY3J0cAAAABgAAAAsAAAAY3VydgAAAAAAAAAbAAAALgAAAGN1c3QAAAAAAAAACgAAADoAAABkZXNjAAAAAAAAAAkAAAA+AAAAZGltAAAAAAAAACgAAAA4AAAAY258AAAAAAAAACcAAAA0AAAAY2NvbAAAAAAAAAAcAAAANgAAAGh0cmcAAAAAAAAAGAAAADkAAABsa3JuAAAAAAAAAA0AAAA7AAAAbW1vZAAAAAAAAAANAAAAQwAAAG1wZGEAAAAAAAAADgAAAEUAAABsb2NhAAAAAAAAAA8AAABIAAAAbWluBgAAAgAAAHJnYwAAAAoAAABMAAAAcm1kAAAAAAAAABIAAABPAAAAdHlwZQAAAAAAAAATAAAAQQAAAHd0cHQAAAAAAAAAFgAAAFMAAAB0cnRhAAAAAAAAABYAAABUAAAAd2JzAAAAAAAAACAAAAFYAAAAeGliYQAAAAAAAAAmAAAAZAAAAGNvb3AAAAAAAAAAKwAAAGYAAABmaXVuAAAAAAAAACsAAABpAAAAZ2VuAAAAAAAAACwAAABrAAAAbnVtcAAAAAAAAAAtAAAAbQAAAHByZmMAAAAAAAABAAAAAQAAAQAAAP/hAEMABgIBAQEBAgMEAwQFBAQEBQYGBQUIBwYICQcLDAsKCxAPDw8PEBESExITEhYSFRUVFRYZGRkZGRsfHx8fHx8gICAfHx8fHyAhISEhISEhISEhISIjIyMjIyMkJCQkJCQmJiYmJiYnJycnJycoKCgoKCgpKSkpKSkqKioqKiorKyurKysrLCwsLCwtLS0tLS4uLi4uLi8vLy8vLzAwMDAwMDExMTEwMDIyMjIyMzMzMzMzNDU1NTU1NjY2NjY2Nzc3Nzc3ODg4ODg4OTk5OTk5Ojo6Ojo6Ozs7Ozs7PDw8PDw8Pj4+Pj8/Pz8/P0BAQEBAP0FBQUFBQkJCQkJDQ0NDQ0RERERER0dHR0dISEhISEhJSUlJSUmJiYmJicoKCgoKCkpKSkpKioqKiosLCwsLC0tLS0tLi4uLi4uLi8vLy8vLzAwMDAwMDExMTEwMDIyMjIyMzMzMzMzNDU1NTU1NjY2NjY2Nzc3Nzc3ODg4ODg4OTk5OTk5Ojo6Ojo6Ozs7Ozs7PDw8PDw8Pj4+Pj8/Pz8/P0BAQEBAP0FBQUFBQkJCQkJDQ0NDQ0RERERER0dHR0dISEhISEhJSUlJSUmJiYmJicoKCgoKCkpKSkpKioqKiosLCwsLC0tLS0tLi4uLi4uLi8vLy8vLzAwMDAwMDExMTEwMDIyMjIyMzMzMzMzNDU1NTU1NjY2NjY2Nzc3Nzc3ODg4ODg4OTk5OTk5Ojo6Ojo6Ozs7Ozs7PDw8PDw8Pj4+Pj8/Pz8/P0BAQEBAP0FBQUFBQkJCQkJDQ0NDQ0RERERER0dHR0dISEhISEhJSUlJSUmJiYmJicoKCgoKCkpKSkpKioqKiosLCwsLC0tLS0tLi4uLi4uLi8vLy8vLzAwMDAwMDExMTEwMDIyMjIyMzMzMzMzNDU1NTU1NjY2NjY2Nzc3Nzc3ODg4ODg4OTk5OTk5Ojo6Ojo6Ozs7Ozs7PDw8PDw8Pj4+Pj8/Pz8/P0BAQEBAP0FBQUFBQkJCQkJDQ0NDQ0RERERER0dHR0dISEhISEhJSUlJSUmJiYmJicoKCgoKCkpKSkpKioqKiosLCwsLC0tLS0tLi4uLi4uLi8vLy8vLzAwMDAwMDExMTEwMDIyMjIyMzMzMzMzNDU1NTU1NjY2NjY2Nzc3Nzc3ODg4ODg4OTk5OTk5Ojo6Ojo6Ozs7Ozs7PDw8PDw8Pj4+Pj8/Pz8/P0BAQEBAP0FBQUFBQkJCQkJDQ0NDQ0RERERER0dHR0dISEhISEhJSUlJSUmJiYmJicoKCgoKCkpKSkpKioqKiosLCwsLC0tLS0tLi4uLi4uLi8vLy8vLzAwMDAwMDExMTEwMDIyMjIyMzMzMzMzNDU1NTU1NjY2NjY2Nzc3Nzc3ODg4ODg4OTk5OTk5Ojo6Ojo6Ozs7Ozs7PDw8PDw8Pj4+Pj8/Pz8/P0BAQEBAP0FBQUFBQkJCQkJDQ0NDQ0RERERER0dHR0dISEhISEhJSUlJSUmJiYmJicoKCgoKCkpKSkpKioqKiosLCwsLC0tLS00gQ4W7QAAIABJREFUeJzs3QecFMX9BvDfd2ZmZr6ZmaVVM0mciCJkEQkoVAmvopxghKBCkuIiwiiCCpFBKuNAsFEkJPgL1XxKQlGUMFkY6I4zN9M/ux2tndmZndlZr3325mZmUy1d1/96He7494+1z8w933e+73uVhERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERER//Z" style="width:60px; height:60px; flex-shrink:0;">
+      <div>
+        <span style="color:#b30000; font-size:13px; font-weight:700; display:block; margin-bottom:4px;">Saúde+</span>
+        <h1 style="font-size:24px; font-weight:700; color:#111; text-align:left; line-height:1.25; margin:0 0 14px 0;">"Esta simples rotina faz você dar adeus ao mal-estar intestinal..."</h1>
+
+        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:6px; font-size:12px; color:#555; margin-bottom:18px; text-align:left;">
+          <span style="font-weight:600; color:#b30000;">Renato Lorenço</span>
+          <span>• em São Paulo</span>
+          <span id="metaDate">• --/--/---- --h--</span>
+        </div>
+
+    
+
+  </div>
+    </div>
+
+    <!-- VSL VTurb -->
+<vturb-smartplayer
+  id="vid-6917691698db0a5ed75f2862"
+  style="display:block; margin:0 auto; width:100%; max-width:400px;">
+</vturb-smartplayer>
+
+<p style="text-align:center; font-size:15px; margin-top:14px; color:#444; font-weight:600;">
+  🔈 Verifique se seu som está ligado
+</p>
+
+    <!-- Faixa amarela + logos -->
+    <div style="position:relative; z-index:3; width:100vw; margin-left:calc(50% - 50vw); padding:28px 16px; background:#f2c200; display:flex; justify-content:center; align-items:center; gap:40px; display:flex; justify-content:center; align-items:center; gap:40px;">
+      <img src="https://www.drconsulta.com/wp-content/uploads/2020/05/logo-drconsulta.png" alt="Dr. Consulta" style="height:40px; filter:grayscale(100%) brightness(75%); opacity:0.9;">
+      <img src="https://drauziovarella.uol.com.br/wp-content/themes/drauziovarella/assets/img/logo-drauziovarella.svg" alt="Drauzio Varella" style="height:40px; filter:grayscale(100%) brightness(75%); opacity:0.9;">
+      <img src="https://saude.abril.com.br/wp-content/themes/saude-abril-2020/assets/img/logo-saude.svg" alt="Saúde Abril" style="height:40px; filter:grayscale(100%) brightness(75%); opacity:0.9;">
+    </div>
+
+  </div>
+
+  <!-- Loader oficial do player VTurb -->
+  <script type="text/javascript">
+    var s = document.createElement("script");
+    s.src = "https://scripts.converteai.net/60b2de82-89bd-4e79-a03f-d206fb6f5a6b/players/6917691698db0a5ed75f2862/v4/player.js";
+    s.async = true;
+    document.head.appendChild(s);
+  </script>
+
+  <!-- Scripts da página -->
+  <script>
+    async function loadCity() {
+      try {
+        const res = await fetch('https://ipapi.co/json/');
+        const data = await res.json();
+        const city = data.city || 'sua região';
+
+        let current = Math.floor(Math.random() * (999 - 500 + 1)) + 500;
+        const el = document.getElementById('cityBar');
+        el.innerHTML = `<span id='viewersNumber' style='color:#b30000; font-weight:700;'>${current}</span> pessoas de <span id='viewerCity'>${city}</span> estão assistindo agora.`;
+
+        setInterval(() => {
+          const variation = Math.floor(Math.random() * 11) - 5; // varia entre -5 e +5
+          current = Math.min(999, Math.max(500, current + variation));
+          el.innerHTML = `<span id='viewersNumber' style='color:#b30000; font-weight:700;'>${current}</span> pessoas de <span id='viewerCity'>${city}</span> estão assistindo agora.`;
+        }, 2500);
+
+      } catch (e) {
+        const el = document.getElementById('cityBar');
+        if (el) {
+          el.textContent = 'Mais de 500 pessoas estão assistindo agora.';
+        }
+      }
+    }
+
+    function formatDate(d) {
+      const dd = String(d.getDate()).padStart(2, '0');
+      const mm = String(d.getMonth() + 1).padStart(2, '0');
+      const yyyy = d.getFullYear();
+      return `${dd}/${mm}/${yyyy}`;
+    }
+
+    function setMetaDate() {
+      const now = new Date();
+
+      // Data: dia anterior
+      const date = new Date(now);
+      date.setDate(date.getDate() - 1);
+
+      // Horário: 1h20 antes do horário atual da pessoa
+      const time = new Date(now.getTime() - (60 + 20) * 60000);
+      const hh = String(time.getHours()).padStart(2, '0');
+      const mm = String(time.getMinutes()).padStart(2, '0');
+
+      const metaEl = document.getElementById('metaDate');
+      if (metaEl) {
+        metaEl.textContent = `• ${formatDate(date)} ${hh}h${mm}`;
+      }
+    }
+
+    loadCity();
+    setMetaDate();
+  </script>
+
+  <footer style="position:relative; z-index:1; margin-top:-30px; background:#2c2c2c; color:rgba(255,255,255,0.9); padding:40px 24px; font-size:14px; line-height:1.55; text-align:center; border-top:1px solid rgba(255,255,255,0.08);">
+
+  <div style="margin-bottom:20px; display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+    <a href="#" style="color:rgba(255,255,255,0.8); text-decoration:none; font-weight:600;">Termos e Uso</a>
+    <a href="#" style="color:rgba(255,255,255,0.8); text-decoration:none; font-weight:600;">Privacidade</a>
+  </div>
+
+  <div style="max-width:720px; margin:0 auto; opacity:0.9;">
+    <p style="margin:10px 0;">Este site não é afiliado ao YouTube ou ao Google LLC.<br>Ele não é endossado nem patrocinado pelo YouTube de nenhuma forma.<br>YouTube é uma marca registrada do Google LLC.</p>
+
+    <p style="margin:10px 0;">Todo o conteúdo deste site é protegido por leis de direitos autorais e de propriedade intelectual.<br>A reprodução ou distribuição de qualquer parte deste site sem permissão é proibida.</p>
+
+    <p style="margin:10px 0;">As informações fornecidas têm caráter educacional e informativo apenas. Resultados individuais podem variar.<br>O conteúdo oferecido não substitui orientação profissional, médica, financeira ou de qualquer outra natureza.<br>Sempre consulte um profissional qualificado antes de tomar decisões baseadas nas informações apresentadas.</p>
+
+    <p style="margin-top:18px; font-weight:600; opacity:0.75;">Todos os direitos reservados © 2025</p>
+  </div>
+</footer>
+</body>
+</html>
